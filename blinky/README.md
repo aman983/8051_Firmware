@@ -25,6 +25,5 @@ if (ret == HAL_OK){
 ```
 
 ## Result
-<div align="center"> 
-  ![Result](../Assets/GPIO_Blinky.gif)
+<div align="center"> <img src="../Assets/GPIO_Blinky.gif" alt="Result" />
 </div>
