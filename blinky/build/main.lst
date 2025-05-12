@@ -222,7 +222,7 @@
                                     222 ; internal ram data
                                     223 ;--------------------------------------------------------
                                     224 	.area DSEG    (DATA)
-      000000                        225 _main_LED1_65536_6:
+      000000                        225 _main_LED1_65536_7:
       000000                        226 	.ds 3
                                     227 ;--------------------------------------------------------
                                     228 ; overlayable items in internal ram 
@@ -309,7 +309,7 @@
                                     309 ;------------------------------------------------------------
                                     310 ;Allocation info for local variables in function 'main'
                                     311 ;------------------------------------------------------------
-                                    312 ;LED1                      Allocated with name '_main_LED1_65536_6'
+                                    312 ;LED1                      Allocated with name '_main_LED1_65536_7'
                                     313 ;i                         Allocated to registers r7 
                                     314 ;i                         Allocated to registers r7 
                                     315 ;------------------------------------------------------------
@@ -327,9 +327,9 @@
                            000001   327 	ar1 = 0x01
                            000000   328 	ar0 = 0x00
                                     329 ;	main.c:7: GPIO_Config_t LED1 = {
-      000000 75*00 00         [24]  330 	mov	_main_LED1_65536_6,#0x00
-      000003 75*01 00         [24]  331 	mov	(_main_LED1_65536_6 + 0x0001),#0x00
-      000006 75*02 00         [24]  332 	mov	(_main_LED1_65536_6 + 0x0002),#0x00
+      000000 75*00 00         [24]  330 	mov	_main_LED1_65536_7,#0x00
+      000003 75*01 00         [24]  331 	mov	(_main_LED1_65536_7 + 0x0001),#0x00
+      000006 75*02 00         [24]  332 	mov	(_main_LED1_65536_7 + 0x0002),#0x00
                                     333 ;	main.c:14: for (unsigned char i = 0; i < 8; i++) {
       000009                        334 00115$:
       000009 7F 00            [12]  335 	mov	r7,#0x00
@@ -348,7 +348,7 @@
       00001C                        348 00139$:
       00001C D5 F0 FB         [24]  349 	djnz	b,00137$
       00001F F5*00            [12]  350 	mov	_GPIO_PORT_Write_PARM_2,a
-      000021 90r00r00         [24]  351 	mov	dptr,#_main_LED1_65536_6
+      000021 90r00r00         [24]  351 	mov	dptr,#_main_LED1_65536_7
       000024 75 F0 40         [24]  352 	mov	b,#0x40
       000027 C0 07            [24]  353 	push	ar7
       000029 12r00r00         [24]  354 	lcall	_GPIO_PORT_Write
@@ -386,7 +386,7 @@
       000053                        386 00143$:
       000053 D5 F0 F5         [24]  387 	djnz	b,00142$
       000056 8D*00            [24]  388 	mov	_GPIO_PORT_Write_PARM_2,r5
-      000058 90r00r00         [24]  389 	mov	dptr,#_main_LED1_65536_6
+      000058 90r00r00         [24]  389 	mov	dptr,#_main_LED1_65536_7
       00005B 75 F0 40         [24]  390 	mov	b,#0x40
       00005E C0 07            [24]  391 	push	ar7
       000060 12r00r00         [24]  392 	lcall	_GPIO_PORT_Write

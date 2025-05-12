@@ -5,11 +5,11 @@ PACKIHX = packihx
 # Project structure
 PRJ_DIR = $(shell pwd)
 SRC_DIR = .
-HAL_DIR = $(PRJ_DIR)/include/HAL
-BUILD_DIR = $(PRJ_DIR)/build
+HAL_DIR = ../HAL
+BUILD_DIR = build
 
 # Sources
-SRC = $(SRC_DIR)/main.c $(wildcard include/HAL/*.c)
+SRC = $(SRC_DIR)/main.c $(wildcard ../HAL/*.c)
 OBJ = $(patsubst %.c,$(BUILD_DIR)/%.rel,$(notdir $(SRC)))
 
 # Target

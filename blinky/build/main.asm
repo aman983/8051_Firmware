@@ -222,7 +222,7 @@ _CY	=	0x00d7
 ; internal ram data
 ;--------------------------------------------------------
 	.area DSEG    (DATA)
-_main_LED1_65536_6:
+_main_LED1_65536_7:
 	.ds 3
 ;--------------------------------------------------------
 ; overlayable items in internal ram 
@@ -309,7 +309,7 @@ __sdcc_program_startup:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;LED1                      Allocated with name '_main_LED1_65536_6'
+;LED1                      Allocated with name '_main_LED1_65536_7'
 ;i                         Allocated to registers r7 
 ;i                         Allocated to registers r7 
 ;------------------------------------------------------------
@@ -327,9 +327,9 @@ _main:
 	ar1 = 0x01
 	ar0 = 0x00
 ;	main.c:7: GPIO_Config_t LED1 = {
-	mov	_main_LED1_65536_6,#0x00
-	mov	(_main_LED1_65536_6 + 0x0001),#0x00
-	mov	(_main_LED1_65536_6 + 0x0002),#0x00
+	mov	_main_LED1_65536_7,#0x00
+	mov	(_main_LED1_65536_7 + 0x0001),#0x00
+	mov	(_main_LED1_65536_7 + 0x0002),#0x00
 ;	main.c:14: for (unsigned char i = 0; i < 8; i++) {
 00115$:
 	mov	r7,#0x00
@@ -348,7 +348,7 @@ _main:
 00139$:
 	djnz	b,00137$
 	mov	_GPIO_PORT_Write_PARM_2,a
-	mov	dptr,#_main_LED1_65536_6
+	mov	dptr,#_main_LED1_65536_7
 	mov	b,#0x40
 	push	ar7
 	lcall	_GPIO_PORT_Write
@@ -386,7 +386,7 @@ _main:
 00143$:
 	djnz	b,00142$
 	mov	_GPIO_PORT_Write_PARM_2,r5
-	mov	dptr,#_main_LED1_65536_6
+	mov	dptr,#_main_LED1_65536_7
 	mov	b,#0x40
 	push	ar7
 	lcall	_GPIO_PORT_Write

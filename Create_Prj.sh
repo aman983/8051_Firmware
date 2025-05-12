@@ -11,4 +11,4 @@ cp -a Template/.vscode $projectname
 cp Template/main.c $projectname
 
 cd $projectname
-mkdir include
+touch README.md

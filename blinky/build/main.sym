@@ -315,7 +315,7 @@ Symbol Table
   6 __start__stack                                                 000000 GR
     _delay_ms                                                      ****** GX
  17 _main                                                          000000 GR
-  5 _main_LED1_65536_6                                             000000 R
+  5 _main_LED1_65536_7                                             000000 R
     a                                                           =  0000E0 L
     a.0                                                         =  0000E0 L
     a.1                                                         =  0000E1 L

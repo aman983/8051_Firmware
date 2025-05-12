@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "gpio.h": "c"
+        "gpio.h": "c",
+        "7_seg.h": "c",
+        "stdbool.h": "c",
+        "delay.h": "c"
     }
 }

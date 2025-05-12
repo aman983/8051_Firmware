@@ -222,7 +222,7 @@
                                     222 ; internal ram data
                                     223 ;--------------------------------------------------------
                                     224 	.area DSEG    (DATA)
-      000008                        225 _main_LED1_65536_6:
+      000008                        225 _main_LED1_65536_7:
       000008                        226 	.ds 3
                                     227 ;--------------------------------------------------------
                                     228 ; overlayable items in internal ram 
@@ -231,8 +231,8 @@
                                     231 ; Stack segment in internal ram 
                                     232 ;--------------------------------------------------------
                                     233 	.area	SSEG
-      000011                        234 __start__stack:
-      000011                        235 	.ds	1
+      000024                        234 __start__stack:
+      000024                        235 	.ds	1
                                     236 
                                     237 ;--------------------------------------------------------
                                     238 ; indirectly addressable internal ram data
@@ -293,14 +293,14 @@
                                     293 	.globl __mcs51_genXRAMCLEAR
                                     294 	.globl __mcs51_genRAMCLEAR
                                     295 	.area GSFINAL (CODE)
-      00005F 02 00 03         [24]  296 	ljmp	__sdcc_program_startup
+      000068 02 00 03         [24]  296 	ljmp	__sdcc_program_startup
                                     297 ;--------------------------------------------------------
                                     298 ; Home
                                     299 ;--------------------------------------------------------
                                     300 	.area HOME    (CODE)
                                     301 	.area HOME    (CODE)
       000003                        302 __sdcc_program_startup:
-      000003 02 00 62         [24]  303 	ljmp	_main
+      000003 02 00 6B         [24]  303 	ljmp	_main
                                     304 ;	return from main will return to caller
                                     305 ;--------------------------------------------------------
                                     306 ; code
@@ -309,7 +309,7 @@
                                     309 ;------------------------------------------------------------
                                     310 ;Allocation info for local variables in function 'main'
                                     311 ;------------------------------------------------------------
-                                    312 ;LED1                      Allocated with name '_main_LED1_65536_6'
+                                    312 ;LED1                      Allocated with name '_main_LED1_65536_7'
                                     313 ;i                         Allocated to registers r7 
                                     314 ;i                         Allocated to registers r7 
                                     315 ;------------------------------------------------------------
@@ -317,7 +317,7 @@
                                     317 ;	-----------------------------------------
                                     318 ;	 function main
                                     319 ;	-----------------------------------------
-      000062                        320 _main:
+      00006B                        320 _main:
                            000007   321 	ar7 = 0x07
                            000006   322 	ar6 = 0x06
                            000005   323 	ar5 = 0x05
@@ -327,77 +327,77 @@
                            000001   327 	ar1 = 0x01
                            000000   328 	ar0 = 0x00
                                     329 ;	main.c:7: GPIO_Config_t LED1 = {
-      000062 75 08 00         [24]  330 	mov	_main_LED1_65536_6,#0x00
-      000065 75 09 00         [24]  331 	mov	(_main_LED1_65536_6 + 0x0001),#0x00
-      000068 75 0A 00         [24]  332 	mov	(_main_LED1_65536_6 + 0x0002),#0x00
+      00006B 75 08 00         [24]  330 	mov	_main_LED1_65536_7,#0x00
+      00006E 75 09 00         [24]  331 	mov	(_main_LED1_65536_7 + 0x0001),#0x00
+      000071 75 0A 00         [24]  332 	mov	(_main_LED1_65536_7 + 0x0002),#0x00
                                     333 ;	main.c:14: for (unsigned char i = 0; i < 8; i++) {
-      00006B                        334 00115$:
-      00006B 7F 00            [12]  335 	mov	r7,#0x00
-      00006D                        336 00107$:
-      00006D BF 08 00         [24]  337 	cjne	r7,#0x08,00135$
-      000070                        338 00135$:
-      000070 50 27            [24]  339 	jnc	00101$
+      000074                        334 00115$:
+      000074 7F 00            [12]  335 	mov	r7,#0x00
+      000076                        336 00107$:
+      000076 BF 08 00         [24]  337 	cjne	r7,#0x08,00135$
+      000079                        338 00135$:
+      000079 50 27            [24]  339 	jnc	00101$
                                     340 ;	main.c:16: GPIO_PORT_Write(&LED1, 1 << i); 
-      000072 8F 06            [24]  341 	mov	ar6,r7
-      000074 8E F0            [24]  342 	mov	b,r6
-      000076 05 F0            [12]  343 	inc	b
-      000078 74 01            [12]  344 	mov	a,#0x01
-      00007A 80 02            [24]  345 	sjmp	00139$
-      00007C                        346 00137$:
-      00007C 25 E0            [12]  347 	add	a,acc
-      00007E                        348 00139$:
-      00007E D5 F0 FB         [24]  349 	djnz	b,00137$
-      000081 F5 0B            [12]  350 	mov	_GPIO_PORT_Write_PARM_2,a
-      000083 90 00 08         [24]  351 	mov	dptr,#_main_LED1_65536_6
-      000086 75 F0 40         [24]  352 	mov	b,#0x40
-      000089 C0 07            [24]  353 	push	ar7
-      00008B 12 05 21         [24]  354 	lcall	_GPIO_PORT_Write
+      00007B 8F 06            [24]  341 	mov	ar6,r7
+      00007D 8E F0            [24]  342 	mov	b,r6
+      00007F 05 F0            [12]  343 	inc	b
+      000081 74 01            [12]  344 	mov	a,#0x01
+      000083 80 02            [24]  345 	sjmp	00139$
+      000085                        346 00137$:
+      000085 25 E0            [12]  347 	add	a,acc
+      000087                        348 00139$:
+      000087 D5 F0 FB         [24]  349 	djnz	b,00137$
+      00008A F5 1E            [12]  350 	mov	_GPIO_PORT_Write_PARM_2,a
+      00008C 90 00 08         [24]  351 	mov	dptr,#_main_LED1_65536_7
+      00008F 75 F0 40         [24]  352 	mov	b,#0x40
+      000092 C0 07            [24]  353 	push	ar7
+      000094 12 07 01         [24]  354 	lcall	_GPIO_PORT_Write
                                     355 ;	main.c:17: delay_ms(10);
-      00008E 90 00 0A         [24]  356 	mov	dptr,#0x000a
-      000091 12 00 D0         [24]  357 	lcall	_delay_ms
-      000094 D0 07            [24]  358 	pop	ar7
+      000097 90 00 0A         [24]  356 	mov	dptr,#0x000a
+      00009A 12 02 87         [24]  357 	lcall	_delay_ms
+      00009D D0 07            [24]  358 	pop	ar7
                                     359 ;	main.c:14: for (unsigned char i = 0; i < 8; i++) {
-      000096 0F               [12]  360 	inc	r7
-      000097 80 D4            [24]  361 	sjmp	00107$
-      000099                        362 00101$:
+      00009F 0F               [12]  360 	inc	r7
+      0000A0 80 D4            [24]  361 	sjmp	00107$
+      0000A2                        362 00101$:
                                     363 ;	main.c:20: for (unsigned char i = 0; i < 8; i++) {
-      000099 7F 00            [12]  364 	mov	r7,#0x00
-      00009B                        365 00110$:
-      00009B BF 08 00         [24]  366 	cjne	r7,#0x08,00140$
-      00009E                        367 00140$:
-      00009E 50 CB            [24]  368 	jnc	00115$
+      0000A2 7F 00            [12]  364 	mov	r7,#0x00
+      0000A4                        365 00110$:
+      0000A4 BF 08 00         [24]  366 	cjne	r7,#0x08,00140$
+      0000A7                        367 00140$:
+      0000A7 50 CB            [24]  368 	jnc	00115$
                                     369 ;	main.c:22: GPIO_PORT_Write(&LED1, 0b10000000 >> i); 
-      0000A0 8F F0            [24]  370 	mov	b,r7
-      0000A2 05 F0            [12]  371 	inc	b
-      0000A4 7D 80            [12]  372 	mov	r5,#0x80
-      0000A6 E4               [12]  373 	clr	a
-      0000A7 FE               [12]  374 	mov	r6,a
-      0000A8 33               [12]  375 	rlc	a
-      0000A9 92 D2            [24]  376 	mov	ov,c
-      0000AB 80 08            [24]  377 	sjmp	00143$
-      0000AD                        378 00142$:
-      0000AD A2 D2            [12]  379 	mov	c,ov
-      0000AF EE               [12]  380 	mov	a,r6
-      0000B0 13               [12]  381 	rrc	a
-      0000B1 FE               [12]  382 	mov	r6,a
-      0000B2 ED               [12]  383 	mov	a,r5
-      0000B3 13               [12]  384 	rrc	a
-      0000B4 FD               [12]  385 	mov	r5,a
-      0000B5                        386 00143$:
-      0000B5 D5 F0 F5         [24]  387 	djnz	b,00142$
-      0000B8 8D 0B            [24]  388 	mov	_GPIO_PORT_Write_PARM_2,r5
-      0000BA 90 00 08         [24]  389 	mov	dptr,#_main_LED1_65536_6
-      0000BD 75 F0 40         [24]  390 	mov	b,#0x40
-      0000C0 C0 07            [24]  391 	push	ar7
-      0000C2 12 05 21         [24]  392 	lcall	_GPIO_PORT_Write
+      0000A9 8F F0            [24]  370 	mov	b,r7
+      0000AB 05 F0            [12]  371 	inc	b
+      0000AD 7D 80            [12]  372 	mov	r5,#0x80
+      0000AF E4               [12]  373 	clr	a
+      0000B0 FE               [12]  374 	mov	r6,a
+      0000B1 33               [12]  375 	rlc	a
+      0000B2 92 D2            [24]  376 	mov	ov,c
+      0000B4 80 08            [24]  377 	sjmp	00143$
+      0000B6                        378 00142$:
+      0000B6 A2 D2            [12]  379 	mov	c,ov
+      0000B8 EE               [12]  380 	mov	a,r6
+      0000B9 13               [12]  381 	rrc	a
+      0000BA FE               [12]  382 	mov	r6,a
+      0000BB ED               [12]  383 	mov	a,r5
+      0000BC 13               [12]  384 	rrc	a
+      0000BD FD               [12]  385 	mov	r5,a
+      0000BE                        386 00143$:
+      0000BE D5 F0 F5         [24]  387 	djnz	b,00142$
+      0000C1 8D 1E            [24]  388 	mov	_GPIO_PORT_Write_PARM_2,r5
+      0000C3 90 00 08         [24]  389 	mov	dptr,#_main_LED1_65536_7
+      0000C6 75 F0 40         [24]  390 	mov	b,#0x40
+      0000C9 C0 07            [24]  391 	push	ar7
+      0000CB 12 07 01         [24]  392 	lcall	_GPIO_PORT_Write
                                     393 ;	main.c:23: delay_ms(10);
-      0000C5 90 00 0A         [24]  394 	mov	dptr,#0x000a
-      0000C8 12 00 D0         [24]  395 	lcall	_delay_ms
-      0000CB D0 07            [24]  396 	pop	ar7
+      0000CE 90 00 0A         [24]  394 	mov	dptr,#0x000a
+      0000D1 12 02 87         [24]  395 	lcall	_delay_ms
+      0000D4 D0 07            [24]  396 	pop	ar7
                                     397 ;	main.c:20: for (unsigned char i = 0; i < 8; i++) {
-      0000CD 0F               [12]  398 	inc	r7
+      0000D6 0F               [12]  398 	inc	r7
                                     399 ;	main.c:27: }
-      0000CE 80 CB            [24]  400 	sjmp	00110$
+      0000D7 80 CB            [24]  400 	sjmp	00110$
                                     401 	.area CSEG    (CODE)
                                     402 	.area CONST   (CODE)
                                     403 	.area XINIT   (CODE)

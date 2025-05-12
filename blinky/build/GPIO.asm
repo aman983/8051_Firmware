@@ -302,7 +302,7 @@ _GPIO_PORT_Write_PARM_2:
 ;state                     Allocated with name '_GPIO_Write_PARM_2'
 ;config                    Allocated to registers r5 r6 r7 
 ;------------------------------------------------------------
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:5: HAL_ERR_e GPIO_Write(GPIO_Config_t *config, GPIO_State_e state){
+;	../HAL/GPIO.c:5: HAL_ERR_e GPIO_Write(GPIO_Config_t *config, GPIO_State_e state){
 ;	-----------------------------------------
 ;	 function GPIO_Write
 ;	-----------------------------------------
@@ -318,7 +318,7 @@ _GPIO_Write:
 	mov	r5,dpl
 	mov	r6,dph
 	mov	r7,b
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:6: if(config->Mode == GPIO_OUTPUT){
+;	../HAL/GPIO.c:6: if(config->Mode == GPIO_OUTPUT){
 	mov	a,#0x02
 	add	a,r5
 	mov	r2,a
@@ -333,14 +333,14 @@ _GPIO_Write:
 	jz	00136$
 	ljmp	00117$
 00136$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:9: if(state == GPIO_HIGH){
+;	../HAL/GPIO.c:9: if(state == GPIO_HIGH){
 	mov	a,#0x01
 	cjne	a,_GPIO_Write_PARM_2,00137$
 	sjmp	00138$
 00137$:
 	ljmp	00114$
 00138$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:11: switch (config->Port)
+;	../HAL/GPIO.c:11: switch (config->Port)
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -352,7 +352,7 @@ _GPIO_Write:
 00139$:
 	mov	a,r4
 	add	a,r4
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:13: case PORT_0:
+;	../HAL/GPIO.c:13: case PORT_0:
 	mov	dptr,#00140$
 	jmp	@a+dptr
 00140$:
@@ -361,7 +361,7 @@ _GPIO_Write:
 	sjmp	00103$
 	sjmp	00104$
 00101$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:14: P0 |= (1 << config->Pin);
+;	../HAL/GPIO.c:14: P0 |= (1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -384,11 +384,11 @@ _GPIO_Write:
 	djnz	b,00141$
 	mov	r2,a
 	orl	_P0,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:15: break;
+;	../HAL/GPIO.c:15: break;
 	ljmp	00115$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:17: case PORT_1:
+;	../HAL/GPIO.c:17: case PORT_1:
 00102$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:18: P1 |= (1 << config->Pin);
+;	../HAL/GPIO.c:18: P1 |= (1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -411,11 +411,11 @@ _GPIO_Write:
 	djnz	b,00144$
 	mov	r2,a
 	orl	_P1,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:19: break;
+;	../HAL/GPIO.c:19: break;
 	ljmp	00115$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:21: case PORT_2:
+;	../HAL/GPIO.c:21: case PORT_2:
 00103$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:22: P2 |= (1 << config->Pin);
+;	../HAL/GPIO.c:22: P2 |= (1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -438,11 +438,11 @@ _GPIO_Write:
 	djnz	b,00147$
 	mov	r2,a
 	orl	_P2,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:23: break;
+;	../HAL/GPIO.c:23: break;
 	ljmp	00115$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:25: case PORT_3:
+;	../HAL/GPIO.c:25: case PORT_3:
 00104$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:26: P3 |= (1 << config->Pin);
+;	../HAL/GPIO.c:26: P3 |= (1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -465,16 +465,16 @@ _GPIO_Write:
 	djnz	b,00150$
 	mov	r2,a
 	orl	_P3,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:27: break;
+;	../HAL/GPIO.c:27: break;
 	ljmp	00115$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:29: default:
+;	../HAL/GPIO.c:29: default:
 00105$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:30: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:30: return HAL_GPIO_CONFIG_MISMATCH;
 	mov	dpl,#0x01
 	ret
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:32: }
+;	../HAL/GPIO.c:32: }
 00114$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:34: switch (config->Port)
+;	../HAL/GPIO.c:34: switch (config->Port)
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -486,7 +486,7 @@ _GPIO_Write:
 00153$:
 	mov	a,r4
 	add	a,r4
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:36: case PORT_0:
+;	../HAL/GPIO.c:36: case PORT_0:
 	mov	dptr,#00154$
 	jmp	@a+dptr
 00154$:
@@ -495,7 +495,7 @@ _GPIO_Write:
 	sjmp	00109$
 	sjmp	00110$
 00107$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:37: P0 &= ~(1 << config->Pin);
+;	../HAL/GPIO.c:37: P0 &= ~(1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -519,11 +519,11 @@ _GPIO_Write:
 	cpl	a
 	mov	r2,a
 	anl	_P0,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:38: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:40: case PORT_1:
+;	../HAL/GPIO.c:38: break;
+;	../HAL/GPIO.c:40: case PORT_1:
 	sjmp	00115$
 00108$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:41: P1 &= ~(1 << config->Pin);
+;	../HAL/GPIO.c:41: P1 &= ~(1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -547,11 +547,11 @@ _GPIO_Write:
 	cpl	a
 	mov	r2,a
 	anl	_P1,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:42: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:44: case PORT_2:
+;	../HAL/GPIO.c:42: break;
+;	../HAL/GPIO.c:44: case PORT_2:
 	sjmp	00115$
 00109$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:45: P2 &= ~(1 << config->Pin);
+;	../HAL/GPIO.c:45: P2 &= ~(1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -575,11 +575,11 @@ _GPIO_Write:
 	cpl	a
 	mov	r2,a
 	anl	_P2,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:46: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:48: case PORT_3:
+;	../HAL/GPIO.c:46: break;
+;	../HAL/GPIO.c:48: case PORT_3:
 	sjmp	00115$
 00110$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:49: P3 &= ~(1 << config->Pin);
+;	../HAL/GPIO.c:49: P3 &= ~(1 << config->Pin);
 	inc	r5
 	cjne	r5,#0x00,00164$
 	inc	r6
@@ -600,22 +600,22 @@ _GPIO_Write:
 	cpl	a
 	mov	r5,a
 	anl	_P3,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:50: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:53: default:
+;	../HAL/GPIO.c:50: break;
+;	../HAL/GPIO.c:53: default:
 	sjmp	00115$
 00111$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:54: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:54: return HAL_GPIO_CONFIG_MISMATCH;
 	mov	dpl,#0x01
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:56: }
+;	../HAL/GPIO.c:56: }
 	ret
 00115$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:58: return HAL_OK;
+;	../HAL/GPIO.c:58: return HAL_OK;
 	mov	dpl,#0x00
 	ret
 00117$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:61: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:61: return HAL_GPIO_CONFIG_MISMATCH;
 	mov	dpl,#0x01
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:62: }
+;	../HAL/GPIO.c:62: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'GPIO_Read'
@@ -623,7 +623,7 @@ _GPIO_Write:
 ;state                     Allocated with name '_GPIO_Read_PARM_2'
 ;config                    Allocated with name '_GPIO_Read_config_65536_12'
 ;------------------------------------------------------------
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:65: HAL_ERR_e GPIO_Read(GPIO_Config_t *config, GPIO_State_e *state){
+;	../HAL/GPIO.c:65: HAL_ERR_e GPIO_Read(GPIO_Config_t *config, GPIO_State_e *state){
 ;	-----------------------------------------
 ;	 function GPIO_Read
 ;	-----------------------------------------
@@ -631,7 +631,7 @@ _GPIO_Read:
 	mov	_GPIO_Read_config_65536_12,dpl
 	mov	(_GPIO_Read_config_65536_12 + 1),dph
 	mov	(_GPIO_Read_config_65536_12 + 2),b
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:66: if(config->Mode == GPIO_INPUT || config->Mode == GPIO_INPUT_PULLUP){
+;	../HAL/GPIO.c:66: if(config->Mode == GPIO_INPUT || config->Mode == GPIO_INPUT_PULLUP){
 	mov	a,#0x02
 	add	a,_GPIO_Read_config_65536_12
 	mov	r2,a
@@ -653,7 +653,7 @@ _GPIO_Read:
 	ljmp	00108$
 00146$:
 00107$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:67: switch(config->Port){
+;	../HAL/GPIO.c:67: switch(config->Port){
 	mov	dpl,_GPIO_Read_config_65536_12
 	mov	dph,(_GPIO_Read_config_65536_12 + 1)
 	mov	b,(_GPIO_Read_config_65536_12 + 2)
@@ -673,7 +673,7 @@ _GPIO_Read:
 	ljmp	00102$
 	ljmp	00103$
 	ljmp	00104$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:68: case PORT_0: *state = (P0 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
+;	../HAL/GPIO.c:68: case PORT_0: *state = (P0 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
 00101$:
 	mov	r2,_GPIO_Read_PARM_2
 	mov	r3,(_GPIO_Read_PARM_2 + 1)
@@ -726,7 +726,7 @@ _GPIO_Read:
 	mov	a,r6
 	lcall	__gptrput
 	ljmp	00106$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:69: case PORT_1: *state = (P1 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
+;	../HAL/GPIO.c:69: case PORT_1: *state = (P1 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
 00102$:
 	mov	r5,_GPIO_Read_PARM_2
 	mov	r6,(_GPIO_Read_PARM_2 + 1)
@@ -779,7 +779,7 @@ _GPIO_Read:
 	mov	a,r3
 	lcall	__gptrput
 	ljmp	00106$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:70: case PORT_2: *state = (P2 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
+;	../HAL/GPIO.c:70: case PORT_2: *state = (P2 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
 00103$:
 	mov	r5,_GPIO_Read_PARM_2
 	mov	r6,(_GPIO_Read_PARM_2 + 1)
@@ -831,7 +831,7 @@ _GPIO_Read:
 	mov	b,r7
 	mov	a,r3
 	lcall	__gptrput
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:71: case PORT_3: *state = (P3 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
+;	../HAL/GPIO.c:71: case PORT_3: *state = (P3 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
 	sjmp	00106$
 00104$:
 	mov	r5,_GPIO_Read_PARM_2
@@ -884,27 +884,27 @@ _GPIO_Read:
 	mov	b,r7
 	mov	a,r3
 	lcall	__gptrput
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:72: default: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:72: default: return HAL_GPIO_CONFIG_MISMATCH;
 	sjmp	00106$
 00105$:
 	mov	dpl,#0x01
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:73: }
+;	../HAL/GPIO.c:73: }
 	ret
 00106$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:74: return HAL_OK;
+;	../HAL/GPIO.c:74: return HAL_OK;
 	mov	dpl,#0x00
 	ret
 00108$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:76: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:76: return HAL_GPIO_CONFIG_MISMATCH;
 	mov	dpl,#0x01
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:77: }
+;	../HAL/GPIO.c:77: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'GPIO_Toggle'
 ;------------------------------------------------------------
 ;config                    Allocated to registers r5 r6 r7 
 ;------------------------------------------------------------
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:80: HAL_ERR_e GPIO_Toggle(GPIO_Config_t *config) {
+;	../HAL/GPIO.c:80: HAL_ERR_e GPIO_Toggle(GPIO_Config_t *config) {
 ;	-----------------------------------------
 ;	 function GPIO_Toggle
 ;	-----------------------------------------
@@ -912,7 +912,7 @@ _GPIO_Toggle:
 	mov	r5,dpl
 	mov	r6,dph
 	mov	r7,b
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:81: if(config->Mode != GPIO_OUTPUT) {
+;	../HAL/GPIO.c:81: if(config->Mode != GPIO_OUTPUT) {
 	mov	a,#0x02
 	add	a,r5
 	mov	r2,a
@@ -925,11 +925,11 @@ _GPIO_Toggle:
 	mov	b,r4
 	lcall	__gptrget
 	jz	00102$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:82: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:82: return HAL_GPIO_CONFIG_MISMATCH;
 	mov	dpl,#0x01
 	ret
 00102$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:85: switch (config->Port) {
+;	../HAL/GPIO.c:85: switch (config->Port) {
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -941,7 +941,7 @@ _GPIO_Toggle:
 00120$:
 	mov	a,r4
 	add	a,r4
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:86: case PORT_0:
+;	../HAL/GPIO.c:86: case PORT_0:
 	mov	dptr,#00121$
 	jmp	@a+dptr
 00121$:
@@ -950,7 +950,7 @@ _GPIO_Toggle:
 	sjmp	00105$
 	sjmp	00106$
 00103$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:87: P0 ^= (1 << config->Pin);
+;	../HAL/GPIO.c:87: P0 ^= (1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -973,11 +973,11 @@ _GPIO_Toggle:
 	djnz	b,00122$
 	mov	r2,a
 	xrl	_P0,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:88: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:90: case PORT_1:
+;	../HAL/GPIO.c:88: break;
+;	../HAL/GPIO.c:90: case PORT_1:
 	sjmp	00108$
 00104$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:91: P1 ^= (1 << config->Pin);
+;	../HAL/GPIO.c:91: P1 ^= (1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -1000,11 +1000,11 @@ _GPIO_Toggle:
 	djnz	b,00125$
 	mov	r2,a
 	xrl	_P1,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:92: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:94: case PORT_2:
+;	../HAL/GPIO.c:92: break;
+;	../HAL/GPIO.c:94: case PORT_2:
 	sjmp	00108$
 00105$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:95: P2 ^= (1 << config->Pin);
+;	../HAL/GPIO.c:95: P2 ^= (1 << config->Pin);
 	mov	a,#0x01
 	add	a,r5
 	mov	r2,a
@@ -1027,11 +1027,11 @@ _GPIO_Toggle:
 	djnz	b,00128$
 	mov	r2,a
 	xrl	_P2,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:96: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:98: case PORT_3:
+;	../HAL/GPIO.c:96: break;
+;	../HAL/GPIO.c:98: case PORT_3:
 	sjmp	00108$
 00106$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:99: P3 ^= (1 << config->Pin);
+;	../HAL/GPIO.c:99: P3 ^= (1 << config->Pin);
 	inc	r5
 	cjne	r5,#0x00,00131$
 	inc	r6
@@ -1051,18 +1051,18 @@ _GPIO_Toggle:
 	djnz	b,00132$
 	mov	r5,a
 	xrl	_P3,a
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:100: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:102: default:
+;	../HAL/GPIO.c:100: break;
+;	../HAL/GPIO.c:102: default:
 	sjmp	00108$
 00107$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:103: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:103: return HAL_GPIO_CONFIG_MISMATCH;
 	mov	dpl,#0x01
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:104: }
+;	../HAL/GPIO.c:104: }
 	ret
 00108$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:106: return HAL_OK;
+;	../HAL/GPIO.c:106: return HAL_OK;
 	mov	dpl,#0x00
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:107: }
+;	../HAL/GPIO.c:107: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'GPIO_PORT_Write'
@@ -1070,24 +1070,38 @@ _GPIO_Toggle:
 ;val                       Allocated with name '_GPIO_PORT_Write_PARM_2'
 ;config                    Allocated to registers r5 r6 r7 
 ;------------------------------------------------------------
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:109: HAL_ERR_e GPIO_PORT_Write(GPIO_Config_t *config, unsigned char val){
+;	../HAL/GPIO.c:109: HAL_ERR_e GPIO_PORT_Write(GPIO_Config_t *config, unsigned char val){
 ;	-----------------------------------------
 ;	 function GPIO_PORT_Write
 ;	-----------------------------------------
 _GPIO_PORT_Write:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:110: if(config->Port == GPIO_OUTPUT){
 	mov	r5,dpl
+	mov	r6,dph
+	mov	r7,b
+;	../HAL/GPIO.c:110: if(config->Mode == GPIO_OUTPUT){
+	mov	a,#0x02
+	add	a,r5
+	mov	r2,a
+	clr	a
+	addc	a,r6
+	mov	r3,a
+	mov	ar4,r7
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
 	lcall	__gptrget
-	mov	r7,a
 	jnz	00108$
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:111: switch (config->Port)
-	mov	a,r7
-	mov	r6,a
+;	../HAL/GPIO.c:111: switch (config->Port)
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
+	lcall	__gptrget
+	mov  r7,a
 	add	a,#0xff - 0x03
 	jc	00105$
-	mov	a,r6
-	add	a,r6
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:113: case PORT_0:
+	mov	a,r7
+	add	a,r7
+;	../HAL/GPIO.c:113: case PORT_0:
 	mov	dptr,#00121$
 	jmp	@a+dptr
 00121$:
@@ -1096,42 +1110,42 @@ _GPIO_PORT_Write:
 	sjmp	00103$
 	sjmp	00104$
 00101$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:114: P0 = val;
+;	../HAL/GPIO.c:114: P0 = val;
 	mov	_P0,_GPIO_PORT_Write_PARM_2
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:115: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:117: case PORT_1:
+;	../HAL/GPIO.c:115: break;
+;	../HAL/GPIO.c:117: case PORT_1:
 	sjmp	00106$
 00102$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:118: P1 = val;
+;	../HAL/GPIO.c:118: P1 = val;
 	mov	_P1,_GPIO_PORT_Write_PARM_2
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:119: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:121: case PORT_2:
+;	../HAL/GPIO.c:119: break;
+;	../HAL/GPIO.c:121: case PORT_2:
 	sjmp	00106$
 00103$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:122: P2 = val;
+;	../HAL/GPIO.c:122: P2 = val;
 	mov	_P2,_GPIO_PORT_Write_PARM_2
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:123: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:125: case PORT_3:
+;	../HAL/GPIO.c:123: break;
+;	../HAL/GPIO.c:125: case PORT_3:
 	sjmp	00106$
 00104$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:126: P3 = val;
+;	../HAL/GPIO.c:126: P3 = val;
 	mov	_P3,_GPIO_PORT_Write_PARM_2
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:127: break;
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:129: default:
+;	../HAL/GPIO.c:127: break;
+;	../HAL/GPIO.c:129: default:
 	sjmp	00106$
 00105$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:130: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:130: return HAL_GPIO_CONFIG_MISMATCH;
 	mov	dpl,#0x01
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:132: }
+;	../HAL/GPIO.c:132: }
 	ret
 00106$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:133: return HAL_OK;
+;	../HAL/GPIO.c:133: return HAL_OK;
 	mov	dpl,#0x00
 	ret
 00108$:
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:135: return HAL_GPIO_CONFIG_MISMATCH;
+;	../HAL/GPIO.c:135: return HAL_GPIO_CONFIG_MISMATCH;
 	mov	dpl,#0x01
-;	/home/aman/Desktop/8051_env/blinky/include/HAL/GPIO.c:136: }
+;	../HAL/GPIO.c:136: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

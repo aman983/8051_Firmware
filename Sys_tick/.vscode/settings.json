@@ -1,0 +1,6 @@
+{
+    "makefile.configureOnOpen": false,
+    "files.associations": {
+        "8051.h": "c"
+    }
+}

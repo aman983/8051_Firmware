@@ -107,7 +107,7 @@ HAL_ERR_e GPIO_Toggle(GPIO_Config_t *config) {
 }
 
 HAL_ERR_e GPIO_PORT_Write(GPIO_Config_t *config, unsigned char val){
-    if(config->Port == GPIO_OUTPUT){
+    if(config->Mode == GPIO_OUTPUT){
         switch (config->Port)
         {
         case PORT_0:

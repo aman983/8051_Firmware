@@ -1,5 +1,5 @@
 -muwx
--i /home/aman/Desktop/8051_env/blinky/build/main.ihx
+-i build/main.ihx
 -M
 -b HOME = 0x0000
 -b XSEG = 0x0001
@@ -13,8 +13,10 @@
 -l libint
 -l liblong
 -l libfloat
-/home/aman/Desktop/8051_env/blinky/build/main.rel
-/home/aman/Desktop/8051_env/blinky/build/Delay.rel
-/home/aman/Desktop/8051_env/blinky/build/GPIO.rel
+build/main.rel
+build/7_Seg.rel
+build/Delay.rel
+build/GPIO.rel
+build/Sys_tick.rel
 
 -e
