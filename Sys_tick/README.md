@@ -1,4 +1,4 @@
-## How to used Sys_tick.h ?
+## How to use Sys_tick.h ?
 
 ```c
 #include "Sys_tick.h" 

@@ -1,4 +1,4 @@
-## How to used HAL GPIO ?
+## How to use HAL GPIO ?
 - If you want to use any componets such as (GPIO, ADC, UART etc) then a specific struct must be declared befor initalising the component.
 - Suppose you want to use GPIO in your firmware then you must include the <code>GPIO.h</code> and use the following to enable GPIO.
 ```c

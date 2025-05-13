@@ -1,4 +1,4 @@
-## How to used 7_seg.h ?
+## How to use 7_seg.h ?
 
 ```c
 // Iitalize the Display Config in this format

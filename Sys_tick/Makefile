@@ -9,7 +9,7 @@ HAL_DIR = ../HAL
 BUILD_DIR = build
 
 # Sources
-SRC = $(SRC_DIR)/main.c $(wildcard ../HAL/*.c)
+SRC = $(SRC_DIR)/main.c $(HAL_DIR)/7_Seg.c $(HAL_DIR)/GPIO.c $(HAL_DIR)/Delay.c $(HAL_DIR)/Sys_tick.c#$(wildcard ../HAL/*.c)
 OBJ = $(patsubst %.c,$(BUILD_DIR)/%.rel,$(notdir $(SRC)))
 
 # Target

@@ -1,4 +1,4 @@
-## How to used LCD16X2.h ?
+## How to use LCD16X2.h ?
 
 ```c
 void main(){
