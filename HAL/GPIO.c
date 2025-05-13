@@ -64,6 +64,13 @@ HAL_ERR_e GPIO_Write(GPIO_Config_t *config, GPIO_State_e state){
 
 HAL_ERR_e GPIO_Read(GPIO_Config_t *config, GPIO_State_e *state){
     if(config->Mode == GPIO_INPUT || config->Mode == GPIO_INPUT_PULLUP){
+        if (config->Mode == GPIO_INPUT_PULLUP)
+        {
+            config->Mode = GPIO_OUTPUT;
+            GPIO_Write(config, GPIO_HIGH);
+            config->Mode = GPIO_INPUT_PULLUP;
+        }
+        
         switch(config->Port){
             case PORT_0: *state = (P0 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;
             case PORT_1: *state = (P1 & (1 << config->Pin)) ? GPIO_HIGH : GPIO_LOW; break;

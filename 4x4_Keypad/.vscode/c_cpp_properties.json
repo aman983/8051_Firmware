@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/share/sdcc/include/mcs51/**",
+                "${workspaceFolder}/../HAL/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "/usr/share/sdcc/include/mcs51/",
+                    "${workspaceFolder}/../HAL/**"
+                ]
+            }
+        }
+    ],
+    "version": 4
+}
