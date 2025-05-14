@@ -3,6 +3,8 @@
         "gpio.h": "c",
         "7_seg.h": "c",
         "stdbool.h": "c",
-        "delay.h": "c"
+        "delay.h": "c",
+        "sys_tick.h": "c",
+        "uart.h": "c"
     }
 }

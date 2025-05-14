@@ -114,7 +114,7 @@ void Segment_write_number(Seg_config_t *config, unsigned char display_number, un
     }else{
         return;
     }
-    Tim_delay_ms(1);
+     Tim_delay_ms(1);
     // Write all the En pins low
     for(unsigned char i =0; i<4; i++){
         Seg_en_Port.Pin = config->Seg_Enable_Pins[i];
@@ -139,7 +139,10 @@ void Multi_Segment_write_Digits(Seg_config_t *config, int number){
     if(is_negative){
         n *= -1;
     }
-
+    if(n == 0){
+        Segment_write_number(config, seg_no, 0);
+        return;
+    }
     while (n)
     {
         dig = n % 10;
@@ -148,7 +151,7 @@ void Multi_Segment_write_Digits(Seg_config_t *config, int number){
         n = n/10;
         seg_no++;
     }
-
+    
     if(is_negative){
         seg_no++;
         Segment_write_number(config, seg_no, dig);

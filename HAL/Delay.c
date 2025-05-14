@@ -27,3 +27,20 @@ void Tim_delay_ms(unsigned int ms){
     } 
     
 }
+
+
+void Tim_delay_us(unsigned int us){
+    while (us--)
+    {
+        TMOD &= 0xF0;      // Clear Timer0 bits
+        TMOD |= 0x01;      // Timer0 Mode 1 (16-bit)
+
+        TH0 = 0xFF;        // High byte for 1 tick
+        TL0 = 0xFF;        // Low byte for 1 tick
+
+        TR0 = 1;           // Start Timer0
+        while (TF0 == 0);  // Wait for overflow (1.085 µs)
+        TR0 = 0;           // Stop Timer0
+        TF0 = 0;           // Clear overflow flag
+    }
+}
