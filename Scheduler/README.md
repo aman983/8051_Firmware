@@ -132,7 +132,7 @@ void main(){
 ```
 
 ## Result
-<div align="center"> <img src="../Assets/scheduler_output.gif" alt="Result" />
+<div align="center"> <img src="../Assets/Scheduler_output.gif" alt="Result" />
 <div align="center"> <img src="../Assets/Scheduler_output_Terminal.gif" alt="Result" />
 </div>
 
